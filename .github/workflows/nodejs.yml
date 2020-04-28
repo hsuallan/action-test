@@ -22,17 +22,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - run: npm install
-    - name: ls
-      run: ls -al
-    - name: cd+ls2
-      run: |
-        cd ./code
-        ls -al
-    - name: cd+ls3
-      run: |
+    - run: |
         cd code/
-        ls -al
+        npm install
     - name: Execute
       run: node code/index.js n2501fv 180
       
