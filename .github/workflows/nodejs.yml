@@ -26,7 +26,13 @@ jobs:
       run: ls -al
     - name: Execute
       run: node index.js n2501fv 180
-    - name: cat
-      run: |
-           find novels/n2501fv -name "*.txt"
+    - name: Update file on GitHub
+      uses: alexesprit/action-update-file@v0.2.3
+      with:
+        # Commit message
+        commit-msg: add file
+        # Path to file to update
+        file-path: novels/n2501fv/180_第180話　頑張りますわっ！.kobako.txt
+        # GitHub token
+        github-token: ${{ secrets.MY_GITHUB_TOKEN }}
     
