@@ -17,6 +17,7 @@ jobs:
       with:
         repository: hsuallan/syosetu-com-spider
         ref: dev
+        path: code
     - name: Use Node.js latest
       uses: actions/setup-node@v1
       with:
@@ -24,16 +25,28 @@ jobs:
     - run: npm install
     - name: ls
       run: ls -al
+    - name: cd+ls1
+      run: |
+        cd /code
+        ls -al
+    - name: cd+ls2
+      run: |
+        cd ./code
+        ls -al
+    - name: cd+ls3
+      run: |
+        cd code/
+        ls -al
     - name: Execute
-      run: node index.js n2501fv 180
+      run: node code/index.js n2501fv 180
       
-   # - name: Update file on GitHub
-   #  uses: alexesprit/action-update-file@v0.2.3
-   #  with:
+    - name: Update file on GitHub
+      uses: alexesprit/action-update-file@v0.2.3
+      with:
         # Commit message
-       # commit-msg: add file
+        commit-msg: add file
         # Path to file to update
-       # file-path: novels/n2501fv/180_第180話　頑張りますわっ！.kobako.txt
+        file-path: code/novels/n2501fv/
         # GitHub token
-        #github-token: ${{ secrets.MY_GITHUB_TOKEN }}
-    
+        github-token: ${{ secrets.MY_GITHUB_TOKEN }}
+        branch: release
