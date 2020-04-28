@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        repository: hsuallan/syosetu-com-spider
+        ref: dev
     - name: Use Node.js latest
       uses: actions/setup-node@v1
       with:
