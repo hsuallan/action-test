@@ -25,10 +25,6 @@ jobs:
     - run: npm install
     - name: ls
       run: ls -al
-    - name: cd+ls1
-      run: |
-        cd /code
-        ls -al
     - name: cd+ls2
       run: |
         cd ./code
