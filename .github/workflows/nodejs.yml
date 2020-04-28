@@ -21,5 +21,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - run: node index.js
-    - run: ls -al
+    - run: npm install
+    - name: ls
+      run: ls -al
+    - name: Execute
+      run: node index.js n2501fv 180
+    - name: cat
+      run: |
+           find novels/n2501fv -name "*.txt"
+    
